@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="card-panel col offset-s3 s6 center-align">
+            <h2 class="center blue-grey-text"><i class="material-icons">error</i></h2>
+            <h3 class="teal-text" th:text="${code}">Hmm...</h3>
+            <h5 class="teal-text" th:text="${message}">Unexpected error</h5>
+            <br>
+            <a href="/home" class="hyperlink">Go on home page</a>
+            <br><br>
+        </div>
+    </div>
+</div>
+</body>
+</html>

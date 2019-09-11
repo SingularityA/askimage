@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<nav class="purple lighten-1" role="navigation" th:fragment="header">
+    <div class="nav-wrapper container">
+
+        <div class="logo">
+            <a id="logo-container" href="/home" class="brand-logo">
+                <img class="icon hide-on-med-and-down" src="/static/images/logo.png" th:src="@{~/images/logo.png}"
+                     width="60" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;" alt="Logo">
+            </a>
+        </div>
+        <ul sec:authorize="isAuthenticated()" class="right hide-on-med-and-down">
+            <li><a href="/login?logout">Logout</a></li>
+        </ul>
+        <ul sec:authorize="isAnonymous()" class="right hide-on-med-and-down">
+            <li><a href="/register">Sign up</a></li>
+        </ul>
+        <ul sec:authorize="isAnonymous()" class="right hide-on-med-and-down">
+            <li><a href="/login">Sign in</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

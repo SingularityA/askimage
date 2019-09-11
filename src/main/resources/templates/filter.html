@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">HEADER</div>
+
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h3 class="header center teal-text">Load your picture and apply our magic</h3>
+        <br><br>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <form class="col offset-s2 s8" th:action="@{/filter/ascii}" th:object="${imageDto}" enctype="multipart/form-data" method="post">
+            <div class="row">
+
+                <p class="purple-text"
+                   th:if="${#fields.hasGlobalErrors()}"
+                   th:each="error : ${#fields.errors('global')}"
+                   th:text="${error}">Validation error</p>
+
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input th:field="*{file}" name="file" type="file" accept="image/*">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                        <p class="purple-text"
+                           th:each="error: ${#fields.errors('file')}"
+                           th:text="${error}">Validation error</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row col s6">
+                        <p>
+                            <label>
+                                <input name="scale" th:value="Simple" type="radio" checked/>
+                                <span>Simple</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="scale" th:value="Average" type="radio"/>
+                                <span>Average</span>
+                            </label>
+                        </p>
+                        <p sec:authorize="isAuthenticated()">
+                            <label>
+                                <input name="scale" th:value="Detailed" type="radio"/>
+                                <span>Detailed</span>
+                            </label>
+                        </p>
+                    </div>
+                    <div sec:authorize="isAuthenticated()" class="row col s6">
+                        <div class="switch">
+                            <label>
+                                Black-white
+                                <input name="color" type="checkbox" disabled="disabled">
+                                <span class="lever"></span>
+                                Color
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Try out!
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+        <br><br>
+        <div class="row"><span style="white-space: pre-line; font-family: 'Courier New';" th:text="${textImage}"></span></div>
+
+        <h5 class="header center teal-text">Copy your picture here when it is done!</h5>
+
+        <div class="row"><textarea style="white-space: pre-line; font-family: 'Courier New';" th:text="${textImage}"></textarea></div>
+    </div>
+    <br><br>
+</div>
+
+<div th:replace="fragments/footer :: footer">&copy; 2019 FOOTER</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

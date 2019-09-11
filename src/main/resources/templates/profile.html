@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">HEADER</div>
+
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="card-panel col offset-s3 s6 center-align">
+            <h3 class="teal-text" th:text="${'Hello, ' + user.userName +', you are ' + user.roles[0].name}">Hello</h3>
+            <h5 class="teal-text" th:text="${message}">Have fun!</h5>
+            <br><br>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+<div th:replace="fragments/logout :: logout">Logout</div>
+
+<div th:replace="fragments/footer :: footer">&copy; 2019 FOOTER</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">HEADER</div>
+
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center teal-text">AskIMage</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Ask our mage to make it ascii</h5>
+        </div>
+        <div class="row center">
+            <a href="/filter/ascii" class="btn-large waves-effect waves-light teal">Try It Now</a>
+        </div>
+        <br><br>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col offset-s3 s3">
+                <div class="icon-block">
+                    <h2 class="center blue-grey-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+
+                    <p class="light">Sign up and get access to additional filter functionality</p>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="icon-block">
+                    <h2 class="center blue-grey-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Customizable</h5>
+
+                    <p class="light">Customize your filter to achieve the result you desire</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+
+<div th:replace="fragments/footer :: footer">&copy; 2019 FOOTER</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
