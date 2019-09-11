@@ -34,7 +34,7 @@ class FilterController {
     fun submitImageFilterDto(model: Model,
                              @ModelAttribute("imageDto") @Valid dto: ImageFilterDto,
                              result: BindingResult): String {
-        println(dto)
+
         if (dto.file?.isEmpty == true)
             result.rejectValue("file", "", "File should be specified!")
         if (result.hasErrors()) {
